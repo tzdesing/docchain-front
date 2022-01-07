@@ -1,0 +1,76 @@
+.page-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 10px;
+
+  .graph {
+    margin-left: 10px;
+  }
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  .card {
+    margin: 10px;
+    border-radius: 4px;
+    min-height: 160px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 32px 18px auto;
+    &:nth-child(1) {
+      margin-left: 0;
+      background: linear-gradient(128deg, #0e285f 0%, #263046 59%, #0d2b67 100%);
+    }
+    &:nth-child(2) {
+      background: linear-gradient(128deg, #ff7a1b 0%, #d06b15 59%, #d66a1d 100%);
+    }
+    &:nth-child(3) {
+      background: linear-gradient(128deg, #d82121 0%, #9e2020 59%, #b30606 100%);
+    }
+    &:nth-child(4) {
+      margin-right: 0;
+      background: linear-gradient(128deg, #598c45 0%, #4b6727 59%, #345415 100%);
+    }
+    .header {
+      display: grid;
+      grid-template-columns: calc(100% - 26px) 26px;
+      height: 24px;
+      text-shadow: 1px 1px 2px #00000040;
+      .title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .icon {
+        color: #fff;
+        opacity: 0.7;
+        .material-icons {
+          font-size: 26px;
+        }
+      }
+    }
+    .subtitle {
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      padding-top: 5px;
+    }
+    .card-body {
+      width: 100%;
+      color: #fff;
+      text-align: left;
+      padding-top: 20px;
+    }
+  }
+}
+::ng-deep {
+  .mat-header-cell {
+    color: #414141;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.signture-table{
+  width: 100%;
+}

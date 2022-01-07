@@ -1,0 +1,180 @@
+<div class="page" id="contractSearch">
+  <div class="page-header">
+    <span>Filtros</span>
+    <span></span>
+    <button (click)="showFilter = !showFilter" mat-stroked-button color="primary" [style.width.%]="'100'">
+      <mat-icon>{{ showFilter ? 'expand_less' : 'expand_more' }}</mat-icon>
+      {{ showFilter === true ? 'Esconder' : 'Mostrar' }}
+    </button>
+  </div>
+  <form
+    *ngIf="showFilter"
+    class="page-content"
+    #loginForm
+    #formElement="ngForm"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="pageForm"
+    novalidate
+  >
+    <div fxLayout="row" fxFlexFill fxLayoutAlign="space-evenly center">
+      <div class="form-field" fxFlex="40" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Veículo</mat-label>
+          <input type="text" matInput formControlName="veiculo" name="veiculo" />
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="15" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Check-In</mat-label>
+          <input type="date" matInput formControlName="checkin" name="checkin" />
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="15" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Check-Out</mat-label>
+          <input type="date" matInput formControlName="checkout" name="checkout" />
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="15" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Diárias</mat-label>
+          <input type="number" matInput formControlName="diaria" name="diaria" />
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="15" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Valor diária</mat-label>
+          <input type="text" matInput formControlName="vlr_diaria" name="vlr_diaria" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" fxFlexFill fxLayoutAlign="space-evenly center">
+      <div class="form-field" fxFlex="70" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Parceiro</mat-label>
+          <mat-select formControlName="parceiro" name="parceiro">
+            <mat-option>Selecione</mat-option>
+            <mat-option *ngFor="let partner of partnerList" [value]="partner.cnpj">{{ partner.nome }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="30" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="parceiro" name="parceiro">
+            <mat-option>Selecione</mat-option>
+            <mat-option *ngFor="let status of statusList" [value]="status.key">{{ status.value }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="showFilter" class="page-header">
+    <span></span>
+    <span></span>
+    <button mat-flat-button color="primary" [style.width.%]="'100'"><mat-icon>search</mat-icon> Buscar</button>
+  </div>
+</div>
+<div class="page">
+  <div class="page-header">
+    <span>Contratos</span>
+    <button class="page-header-item" (click)="print()" mat-stroked-button color="primary">
+      <mat-icon>print</mat-icon> Imprimir
+    </button>
+    <a
+      class="page-header-item"
+      [routerLink]="['/page/contract/new']"
+      mat-flat-button
+      color="primary"
+      [style.width.%]="'100'"
+    >
+      <mat-icon>add</mat-icon> Adicionar
+    </a>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let row">
+        <span [title]="row.id">{{ row.id.split('-')[0] }}</span>
+      </td>
+    </ng-container>
+    <!-- Column -->
+    <ng-container matColumnDef="veiculo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Veículo</th>
+      <td mat-cell *matCellDef="let row">{{ row.veiculo }}</td>
+    </ng-container>
+    <!-- ID Column -->
+    <ng-container matColumnDef="docstatus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Aprovação</th>
+      <td mat-cell *matCellDef="let row">{{ row?.docstatus }}</td>
+    </ng-container>
+    <!-- Column -->
+    <ng-container matColumnDef="checkin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="checkin">Check-In</th>
+      <td mat-cell *matCellDef="let row">{{ row.checkin }}</td>
+    </ng-container>
+
+    <!-- Column -->
+    <ng-container matColumnDef="checkout">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Check-Out</th>
+      <td mat-cell *matCellDef="let row">{{ row.checkout }}</td>
+    </ng-container>
+
+    <!-- Column -->
+    <ng-container matColumnDef="diaria">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Diária</th>
+      <td mat-cell *matCellDef="let row">{{ row.diaria }}</td>
+    </ng-container>
+
+    <!-- Column -->
+    <ng-container matColumnDef="vlr_diaria">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vlr Diária</th>
+      <td mat-cell *matCellDef="let row">{{ row.vlr_diaria }}</td>
+    </ng-container>
+
+    <!-- Column -->
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vlr Total</th>
+      <td mat-cell *matCellDef="let row">{{ row.total }}</td>
+    </ng-container>
+
+    <!-- Column -->
+    <ng-container matColumnDef="parceiro">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Parceiro</th>
+      <td mat-cell *matCellDef="let row">{{ row.parceiro }}</td>
+    </ng-container>
+    <!-- Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+    </ng-container>
+    <!-- Column -->
+    <!-- ID Column -->
+    <ng-container matColumnDef="download">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Download</th>
+      <td mat-cell *matCellDef="let row">
+        <span (click)="downloadFile(row.id)">Download</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="signatures">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Assinaturas</th>
+      <td mat-cell *matCellDef="let row">
+        <span (click)="showListSignatures(row.id)" class="list-signatures-action">{{ row?.signatures }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="options">
+      <th mat-header-cell *matHeaderCellDef class="hideOnPrint">Opções</th>
+      <td mat-cell *matCellDef="let row" class="hideOnPrint">
+        <a [routerLink]="['/page/contract/update/' + row.id]">Detalhe</a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter</td>
+    </tr>
+  </table>
+</div>

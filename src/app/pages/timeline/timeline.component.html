@@ -1,0 +1,10 @@
+<div class="line-container">
+  <div *ngFor="let contract of contractList" class="line-piece">
+    <div class="date-content"><button (click)="openDetails(contract)">Detalhes</button> </div>
+    <mat-card>
+      Veículo {{ contract.veiculo }} com check-in em {{ contract.checkin }} e check-out
+      {{ contract.checkout || 'Em
+            aberto' }}.
+    </mat-card>
+  </div>
+</div>

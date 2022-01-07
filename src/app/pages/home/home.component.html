@@ -1,0 +1,92 @@
+<div class="cards-container">
+  <div class="card">
+    <div class="header">
+      <div class="title">{{ dashboard.totalContracts || 0 }} contratos</div>
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">donut_large</mat-icon>
+      </div>
+    </div>
+    <div class="subtitle">Total</div>
+    <div class="card-body">
+      Muitos softwares de publicação e editores de páginas na internet agora usam Lorem Ipsum como texto-modelo.
+    </div>
+  </div>
+  <div class="card">
+    <div class="header">
+      <div class="title">{{ dashboard.totalContractUpdates }}+ atualizações</div>
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">update</mat-icon>
+      </div>
+    </div>
+    <div class="subtitle">Total</div>
+    <div class="card-body">
+      Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração.
+    </div>
+  </div>
+  <div class="card">
+    <div class="header">
+      <div class="title">{{ dashboard.totalContractValue | currency }}</div>
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">payment</mat-icon>
+      </div>
+    </div>
+    <div class="subtitle">Total</div>
+    <div class="card-body">
+      Ele usa um dicionário com mais de 200 palavras em Latim combinado com um punhado de modelos de estrutura de frases
+      para gerar um Lorem Ipsum.
+    </div>
+  </div>
+</div>
+<div class="page-container">
+  <div class="page table">
+    <div class="page-header clear">Lista de contratos</div>
+    <app-timeline [data]="contractList"></app-timeline>
+  </div>
+  <div class="graph">
+    <div class="page">
+      <div class="page-header clear">Assinaturas Pendentes</div>
+      <div class="page-content">
+        <table mat-table [dataSource]="dataSourceSigntures" class="signture-table">
+          <ng-container matColumnDef="contract">
+            <th mat-header-cell *matHeaderCellDef>Contrato</th>
+            <td mat-cell *matCellDef="let element">{{ element.contract }}</td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Assinatura Pendente</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <ng-container *ngIf="!element.signed && element.showAction">
+                <button type="button" mat-flat-button color="primary" (click)="signContract(element)">Assinar</button>
+              </ng-container>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayColumnsSigntures"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayColumnsSigntures"></tr>
+        </table>
+      </div>
+      <!-- <div class="page-header clear">Estatísticas</div>
+      <google-chart
+        [title]="chart.title"
+        [type]="chart.type"
+        [data]="chart.data"
+        [columns]="chart.columnNames"
+        [options]="chart.options"
+      >
+      </google-chart> -->
+    </div>
+    <!-- <div class="page">
+      <div class="page-header clear">Alterações por período</div>
+      <google-chart
+        [title]="chart.title"
+        [type]="chart.type"
+        [data]="chart.data"
+        [columns]="chart.columnNames"
+        [options]="chart.options"
+      >
+      </google-chart>
+    </div> -->
+  </div>
+</div>

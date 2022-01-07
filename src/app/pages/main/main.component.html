@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="mat-toolbar">
+  <span id="logo"><img src="/assets/docchain.svg" alt="" srcset="" /></span>
+  <span class="spacer">{{user?.nome}}</span>
+  <a [routerLink]="['/page/home']" routerLinkActive="active" mat-icon-button class="menu-item">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </a>
+  <a *ngIf="user?.type==='hoster'" [routerLink]="['/page/partner']" routerLinkActive="active" mat-icon-button class="menu-item">
+    <mat-icon>people_alt</mat-icon>
+    <span>Parceiros</span>
+  </a>
+  <a [routerLink]="['/page/contract']" routerLinkActive="active" mat-icon-button class="menu-item">
+    <mat-icon>article</mat-icon>
+    <span>Contratos</span>
+  </a>
+  <a [routerLink]="['/']" mat-icon-button class="menu-item">
+    <mat-icon>logout</mat-icon>
+    <span>Sair</span>
+  </a>
+</mat-toolbar>
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

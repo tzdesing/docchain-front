@@ -1,0 +1,46 @@
+<div class="login-conteiner" [style.height.px]="loginFormHeight">
+  <h1>O {{ product?.name }} lhe dá boas vindas.</h1>
+  <form #loginForm class="login-form" #formElement="ngForm" (ngSubmit)="onSubmit()" [formGroup]="pageForm" novalidate>
+    <div class="form-content">
+      <mat-form-field class="example-form-field">
+        <mat-label>Email</mat-label>
+        <input type="text" required matInput formControlName="email" name="email" tabindex="1" />
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>email</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>Senha</mat-label>
+        <input type="password" required matInput formControlName="password" name="password" tabindex="2"  />
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">lock</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-flat-button color="primary" [style.width.%]="'100'">Entrar</button>
+    </div>
+  </form>
+  <div class="form-text">
+    <!-- <div>
+            <a [routerLink]="['/']">Esqueci minha senha</a>
+        </div>
+        <div>
+            <a [routerLink]="['/']">Cadastre-se</a>
+        </div> -->
+  </div>
+</div>
+<div class="login-conteiner-shadow" [style.height.px]="loginFormHeight"></div>
+<div class="area">
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

@@ -1,0 +1,53 @@
+@import "src/theme/theme-variables";
+.line-container {
+  width: calc(100% - 20px);
+  height: auto;
+  border-left: 3px dashed $gftSecondary;
+  position: relative;
+  margin-left: 20px;
+  .line-piece {
+    width: calc(100% - 43px);
+    padding: 30px 20px 0px 20px;
+    border-left: 3px solid $gftSecondary;
+    margin-top: 40px;
+    display: inline-block;
+    margin-left: -3px;
+    position: relative;
+    .date-content {
+      position: absolute;
+      width: 100%;
+      height: 15px;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      margin-left: 20px;
+      margin-top: 7px;
+      font-weight: 100;
+      font-size: 14px;
+      button {
+        border: 0;
+        font-size: 12px;
+        color: #fff;
+        background-color: $gftPrimary;
+        border-radius: 6px;
+        padding: 2px 8px;
+        margin-right: 10px;
+        cursor: pointer;
+        font-family: "Nunito Sans", sans-serif;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $gftSecondary;
+      width: 15px;
+      height: 15px;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      margin-left: -12px;
+      margin-top: 7px;
+      border: 3px solid #fff;
+    }
+  }
+}

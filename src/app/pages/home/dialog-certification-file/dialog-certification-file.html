@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Inserir certificado</h1>
+<form #certForm="ngForm" (submit)="onSubmit()">
+  <div mat-dialog-content>
+    <div class="form-upload">
+      <button type="button" class="upload-button" (click)="uploadFileButton()" mat-flat-button color="primary">
+        Upload de Contrato
+      </button>
+      <label class="upload-filename" (click)="uploadFileButton()">{{ fileName }}</label>
+      <input
+        type="file"
+        name="file"
+        class="upload-input"
+        #uploadFile
+        id="file"
+        (change)="onFileChange($event)"
+        accept=".pfx"
+      />
+    </div>
+    <div class="password-field">
+      <mat-form-field>
+        <mat-label>Senha do Certificado</mat-label>
+        <input type="password" matInput name="passwordCert" [(ngModel)]="passwordCert" required />
+      </mat-form-field> 
+    </div>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" type="submit">Enviar</button>
+  </div>
+</form>

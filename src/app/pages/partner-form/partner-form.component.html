@@ -1,0 +1,60 @@
+<div class="page">
+  <div class="page-header clear">
+    <span>{{ pageTitle }}</span>
+  </div>
+  <form class="page-content" #loginForm #formElement="ngForm" (ngSubmit)="onSubmit()" [formGroup]="pageForm" novalidate>
+    <div fxLayout="row" fxLayout.xs="column" fxFlexFill fxLayoutAlign="space-evenly center">
+      <div class="form-field" fxFlex="50" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input type="text" matInput formControlName="nome" name="nome" />
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="50" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>CNPJ</mat-label>
+          <input type="number" matInput formControlName="cnpj" name="cnpj" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxFlexFill fxLayoutAlign="space-evenly center">
+      <div class="form-field" fxFlex="50" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Comissão(%)</mat-label>
+          <input type="text" matInput formControlName="comissao" name="comissao" />
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="50" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input type="email" matInput formControlName="email" name="email" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxFlexFill fxLayoutAlign="space-evenly center">
+      <div class="form-field" fxFlex="100" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>URL do nó</mat-label>
+          <input type="text" matInput formControlName="url" name="url" />
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxFlex="100" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Parametro do nó</mat-label>
+          <input type="text" matInput formControlName="parametro" name="parametro" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="page-header">
+      <span></span>
+
+      <a [routerLink]="['/page/partner']" class="page-header-item" mat-stroked-button color="primary">
+        <mat-icon>arrow_back_ios</mat-icon> Voltar
+      </a>
+      <button class="page-header-item" mat-flat-button color="primary"><mat-icon>done</mat-icon> Salvar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,72 @@
+.spacer {
+  flex: 1 1 auto;
+}
+span.spacer {
+  padding-left: 20px;
+  font-size: 27px;
+}
+#logo {
+  img {
+    height: 51px;
+  }
+}
+.main-content {
+  box-sizing: border-box;
+  height: calc(100vh - 64px);
+  margin: 0px 0px;
+  position: relative;
+  padding: 84px 20px 0px 20px;
+}
+
+.mat-toolbar {
+  position: fixed;
+  z-index: 9;
+  .menu-item {
+    line-height: normal;
+    text-align: center;
+    width: auto;
+    border-radius: 0;
+    height: inherit;
+    margin-bottom: -20px;
+    padding-right: 10px;
+    margin-top: -20px;
+    padding-left: 10px;
+    margin-left: 20px;
+    padding-top: 10px;
+
+    span {
+      display: block;
+    }
+    &.active,
+    &:hover {
+      background-color: #fff;
+      color: #203e7e;
+    }
+  }
+}
+@media print {
+  .mat-toolbar {
+    display: none;
+  }
+}
+
+::ng-deep {
+  .mat-toolbar {
+    border-bottom: 5px solid #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #203e7e;
+  }
+}

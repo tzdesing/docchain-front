@@ -1,0 +1,26 @@
+<div class="dialog-container">
+
+  <span class="dialog-close" mat-dialog-close><mat-icon>close</mat-icon></span>
+  <h1 mat-dialog-title>Lista de Assinaturas</h1>
+  
+  <div mat-dialog-content>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of signatureList">
+          <td>{{data.name}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.signed ? 'Assinado' : 'Não assinado'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div mat-dialog-actions align="end"></div>
+  
+</div>

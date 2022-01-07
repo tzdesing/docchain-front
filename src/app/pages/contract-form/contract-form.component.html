@@ -1,0 +1,165 @@
+<div class="page">
+  <div class="page-header clear">
+    <span>{{ pageTitle }}</span>
+  </div>
+  <form class="page-content" #loginForm #formElement="ngForm" (ngSubmit)="onSubmit()" [formGroup]="pageForm" novalidate>
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start start">
+      <div fxFlex="calc(40% - 10px)" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Veículo</mat-label>
+          <input type="text" matInput placeholder="Ex: Sedan" formControlName="veiculo" name="veiculo" />
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="calc(15% - 10px)" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Check-In</mat-label>
+          <input type="date" matInput formControlName="checkin" name="checkin" />
+        </mat-form-field>
+      </div>
+      <div fxFlex="calc(15% - 10px)" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Check-Out</mat-label>
+          <input type="date" matInput formControlName="checkout" name="checkout" />
+        </mat-form-field>
+      </div>
+      <div fxFlex="calc(15% - 10px)" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Qtd. Diárias</mat-label>
+          <input type="number" min="1" matInput formControlName="diaria" name="diaria" />
+        </mat-form-field>
+      </div>
+      <div fxFlex="calc(15% - 10px)" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Valor diária</mat-label>
+          <input type="text" matInput formControlName="vlr_diaria" name="vlr_diaria" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-evenly start">
+      <div fxFlex="70" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Parceiro</mat-label>
+          <mat-select formControlName="parceiro" name="parceiro">
+            <mat-option>Selecione</mat-option>
+            <mat-option *ngFor="let parner of parnerList" [value]="parner.nome">{{ parner.nome }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="15" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Valor total</mat-label>
+          <input
+            type="number"
+            readonly="true"
+            [value]="(pageForm.get('diaria').value || 0) * (pageForm.get('vlr_diaria').value || 0)"
+            matInput
+            formControlName="total"
+            name="total"
+          />
+        </mat-form-field>
+      </div>
+      <div fxFlex="15" fxFlex.xs="100">
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" name="status">
+            <mat-option>Selecione</mat-option>
+            <mat-option *ngFor="let status of statusList" [value]="status.key">{{ status.value }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- https://araucariageneticabovina.com.br/arquivos/servico/pdfServico_57952bf8ca7af_24-07-2016_17-58-32.pdf -->
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-evenly start">
+      <div fxFlex="40" fxFlex.xs="100">
+        <div class="form-upload">
+          <button type="button" class="upload-button" (click)="uploadFileButton()" mat-flat-button color="primary">
+            Upload de Contrato
+          </button>
+          <label class="upload-filename" (click)="uploadFileButton()">{{ fileName }}</label>
+          <input type="file" name="file" class="upload-input" #uploadFile id="file" (change)="onFileChange($event)" />
+        </div>
+        <mat-form-field>
+          <mat-label>Descrição do Documento</mat-label>
+          <textarea matInput formControlName="descricaoDocumento" name="descricaoDocumento"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxFlex="60" fxFlex.xs="100">
+        <p class="label-need-sign">Lista de assinaturas:</p>
+
+        <form #contactForm="ngForm" fxLayoutGap="10px" fxLayout="row" (ngSubmit)="addContactSignture()">
+          <div fxFlex="45">
+            <mat-form-field>
+              <mat-label>Nome</mat-label>
+              <input
+                type="text"
+                matInput
+                required
+                [(ngModel)]="contactSignatureModel.name"
+                #signatureNameInput
+                name="signatureName"
+              />
+            </mat-form-field>
+          </div>
+          <div fxFlex="45">
+            <mat-form-field>
+              <mat-label>E-mail</mat-label>
+              <input
+                type="email"
+                email
+                matInput
+                required
+                [(ngModel)]="contactSignatureModel.email"
+                name="signatureEmail"
+              />
+            </mat-form-field>
+          </div>
+          <div>
+            <button type="submit" mat-mini-fab color="primary" [disabled]="!contactForm.form.valid">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </form>
+        <div *ngIf="showSignatureTable">
+          <table mat-table [dataSource]="dataSource" class="table">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Nome</th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef>E-mail</th>
+              <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <button type="button" mat-icon-button color="basic" (click)="removeSignture(element)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer class="footer" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+      <div>
+        <a [routerLink]="['/page/contract']" mat-stroked-button color="primary">
+          <mat-icon>arrow_back_ios</mat-icon> Voltar
+        </a>
+      </div>
+      <div>
+        <button type="submit" mat-flat-button color="primary"><mat-icon>done</mat-icon> Salvar</button>
+      </div>
+    </footer>
+  </form>
+
+  <div *ngIf="contractId" class="page page-timeline">
+    <div class="page-header clear">Historico de atualizações</div>
+    <app-timeline [data]="contractListHist"></app-timeline>
+  </div>
+</div>
+<app-loader [isLoading]="loading"></app-loader>

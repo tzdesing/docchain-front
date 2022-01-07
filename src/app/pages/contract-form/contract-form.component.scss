@@ -1,0 +1,53 @@
+::ng-deep {
+  .mat-header-cell {
+    color: #414141;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+.page {
+  .page-timeline {
+    width: 100%;
+  }
+}
+.mat-button,
+.mat-stroked-button,
+.mat-flat-button {
+  text-align: left;
+}
+
+.form-upload {
+  padding-bottom: 1.25rem;
+
+  .upload-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .upload-filename {
+    margin-left: 1rem;
+  }
+}
+
+.label-need-sign {
+  margin-bottom: 0.75rem;
+}
+
+.table {
+  width: 100%;
+
+  .mat-column-name {
+    width: 200px;
+  }
+
+  .mat-column-action {
+    width: 20px;
+  }
+}
+
+.footer {
+  margin-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
