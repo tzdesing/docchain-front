@@ -12,7 +12,7 @@
 
 export const environment = {
   product: {
-    name: 'DocChain',
+    name: 'Pytuna',
   },
   production: false,
   version: '1.0.0-dev',
