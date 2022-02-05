@@ -8,6 +8,8 @@ import { LoginModule } from './pages/login/login.module';
 import { MainComponent } from './pages/main/main.component';
 import { PartnerFormModule } from './pages/partner-form/partner-formmodule';
 import { PartnerModule } from './pages/partner/partner.module';
+import { CadastroModule } from './pages/cadastro/cadastro.module';
+
 
 const routes: Routes = [
   {
@@ -47,6 +49,10 @@ const routes: Routes = [
       {
         path: 'contract/update/:id',
         loadChildren: () => ContractFormModule,
+      },
+      {
+        path: 'cadastro',
+        loadChildren: () => CadastroModule,
       },
     ],
   },

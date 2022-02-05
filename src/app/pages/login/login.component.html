@@ -17,17 +17,24 @@
           <mat-icon aria-hidden="false" aria-label="Example home icon">lock</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-flat-button color="primary" [style.width.%]="'100'">Entrar</button>
+      <div class="botoesLogin">
+        <button mat-flat-button color="primary" [style.width.%]="'40'">Entrar</button>
+        <button mat-flat-button [style.width.%]="'40'" [routerLink]="['/page/cadastro']" routerLinkActive="active" class="cadastro">Cadastre-se</button>
+      </div>
+      
+    </div>
+    <div class="form-text">
+      <div>
+        <a [routerLink]="['/']" class="esqueci">Esqueci minha senha</a>
+      </div>
+      <!-- <div>
+        <a [routerLink]="['/page/cadastro']" routerLinkActive="active" mat-icon-button class="cadastro">
+          <mat-icon>article</mat-icon>
+          <span>Cadastre-se</span>
+        </a>
+      </div> -->
     </div>
   </form>
-  <div class="form-text">
-    <!-- <div>
-            <a [routerLink]="['/']">Esqueci minha senha</a>
-        </div>
-        <div>
-            <a [routerLink]="['/']">Cadastre-se</a>
-        </div> -->
-  </div>
 </div>
 <div class="login-conteiner-shadow" [style.height.px]="loginFormHeight"></div>
 <div class="area">

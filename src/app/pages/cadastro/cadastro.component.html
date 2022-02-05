@@ -1,0 +1,85 @@
+<div class="page">
+    <div class="pageHeader">
+      <span>Cadastro</span>
+    </div>
+    <form class="page-content" ><!--(ngSubmit)=""--><!--[formGroup]="pageForm" #loginForm #formElement="ngForm" novalidate-->
+      <div class="container-form">
+        <div fxFlex="calc(40% - 10px)" fxFlex.xs="100">
+          <div>
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Insira seu nome" formControlName="nome" name="nome" required/>
+          </div>
+        </div>
+        <div fxFlex="calc(15% - 10px)" fxFlex.xs="100">
+          <div>
+            <label for="cpf">CPF</label>
+            <input type="text" placeholder="XXX.XXX.XXX-XX" maxlength="11" name="cpf" formControlName="cpf" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})" required>
+          </div>                                                                     
+        </div>
+      
+       <!-- <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-evenly start"> -->
+
+      <!-- <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-evenly start">
+        <div fxFlex="60" fxFlex.xs="100"> -->
+            <div>
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  required
+                  name="email"
+                  placeholder="user@email.com"
+                />
+                <!-- [(ngModel)]="" -->
+            </div>
+            <div>
+                  <label for="senha">Senha</label>
+                  <input
+                    type="password"
+                    placeholder="Senha"
+                    minlength="6"
+                    id="password"
+                    required
+                    name="senha"
+                  />
+
+                  <!-- [(ngModel)]="" -->
+              </div>
+              <div>
+                  <label for="senhaConfirma">Confirme a senha</label>
+                  <input
+                    type="password"
+                    placeholder="Confirme Senha"
+                    minlength="6"
+                    id="confirm-password"
+                    required
+                    name="senhaConfirma"
+                  />
+                  <!-- [(ngModel)]="" -->
+              </div>
+              <div>
+                  <label>Você é um Artista/Cliente?</label>
+                  <div class="checkArtista">
+                    <input type="checkbox" id="artista" name="artista">
+                    <label for="artista">Artista</label>
+                  </div>
+                <div class="checkCliente">
+                    <input type="checkbox" id="cliente" name="cliente">
+                    <label for="cliente">Cliente</label>
+                </div>
+              </div>
+
+              <div class="botoesCadastrar">
+                <button class="cadastrar">Cadastrar</button>
+                <!-- <button mat-flat-button [style.width.%]="'40'" [routerLink]="['/page/cadastro']" routerLinkActive="active" class="cadastro">Cadastre-se</button> -->
+              </div>
+            <!-- <div>
+                <button type="submit" mat-mini-fab color="primary">[disabled]=""
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div> -->
+        <!-- </div> -->
+      </div>
+    </form>
+
+
+  </div>
