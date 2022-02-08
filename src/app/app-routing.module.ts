@@ -9,6 +9,7 @@ import { MainComponent } from './pages/main/main.component';
 import { PartnerFormModule } from './pages/partner-form/partner-formmodule';
 import { PartnerModule } from './pages/partner/partner.module';
 import { CadastroModule } from './pages/cadastro/cadastro.module';
+import { RecSenhaModule } from './pages/rec-senha/rec-senha.module';
 
 
 const routes: Routes = [
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'cadastro',
         loadChildren: () => CadastroModule,
+      },
+      {
+        path: 'recuperarSenha',
+        loadChildren: () => RecSenhaModule,
       },
     ],
   },

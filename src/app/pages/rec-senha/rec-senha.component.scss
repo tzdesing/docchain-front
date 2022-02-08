@@ -1,0 +1,81 @@
+::ng-deep {
+    .mat-header-cell {
+      color: #000;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  .pageHeader{ 
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fdfdfd;
+    padding: 10px 20px;
+    position: relative;
+    line-height: 36px;
+    text-align: center;
+}
+
+.page{
+    color: #000;
+    max-width: 100%;
+    font-family: "Nunito Sans";
+    h1{
+        font-family: fangsong;
+        font-weight: 400;
+        font-size: 30px;
+    }
+}
+
+.pageContent{
+    width: 80%;
+    margin-top: 6%;
+    margin-bottom: 7%;
+    margin-left: 10%;
+    padding: 20px;
+}
+label{
+    display: block;
+    margin-bottom: 15px;
+    margin-left: 32%;
+    font-weight: 400;
+    font-size: 15px;
+}
+span{
+    display: block;
+    margin-bottom: 3px;
+    margin-left: 60%;
+    font-weight: 500;
+    font-size: 12px;
+    color: red;
+}
+input[type="email"]{
+    margin-bottom: 30px;
+    outline: none;
+    display: block;
+    width: 32%;
+    margin-left: 34%;
+    border: 1px solid darken(gray, 15%);
+    //margin: 0 0 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+.botoesEnviar{
+    //width: 30%;
+    text-align: center;
+    font-size: 15px;
+    .Enviar{
+        margin-left: 0;
+        border-radius: 9px;
+        margin-top: 25px;
+        padding: 10px;
+        background-color: #203e7e;
+        width: 13%;
+        color: #fff; 
+        font-weight: 500; 
+    }
+    // .cadastrar:disabled{
+    //     background-color: gray;
+    //     color: #000;
+    // }
+}

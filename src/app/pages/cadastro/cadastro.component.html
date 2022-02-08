@@ -1,19 +1,34 @@
 <div class="page">
     <div class="pageHeader">
-      <span>Cadastro</span>
+      <h1>Cadastro</h1>
     </div>
-    <form class="page-content" ><!--(ngSubmit)=""--><!--[formGroup]="pageForm" #loginForm #formElement="ngForm" novalidate-->
+    <form #CadastroForm class="page-content" #formElement="ngForm" (ngSubmit)="postar()" [formGroup]="pageFormCadastro"><!--(ngSubmit)=""--><!--[formGroup]="pageForm" #loginForm #formElement="ngForm" novalidate-->
       <div class="container-form">
         <div fxFlex="calc(40% - 10px)" fxFlex.xs="100">
           <div>
             <label for="nome">Nome</label>
             <input type="text" placeholder="Insira seu nome" formControlName="nome" name="nome" required/>
+            <ng-container *ngIf="pageFormCadastro.controls.nome.touched">
+              <span *ngIf="pageFormCadastro.controls.nome.errors?.required">
+                Campo obrigatório
+              </span>
+            </ng-container>
+            
           </div>
         </div>
         <div fxFlex="calc(15% - 10px)" fxFlex.xs="100">
           <div>
             <label for="cpf">CPF</label>
             <input type="text" placeholder="XXX.XXX.XXX-XX" maxlength="11" name="cpf" formControlName="cpf" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})" required>
+            <ng-container *ngIf="pageFormCadastro.controls.cpf.touched">
+              <span *ngIf="pageFormCadastro.controls.cpf.errors?.required">
+                Campo obrigatório
+              </span>
+              <span *ngIf="pageFormCadastro.controls.cpf.errors?.minLength">
+                CPF incompleto
+              </span>
+            </ng-container>
+            
           </div>                                                                     
         </div>
       
@@ -28,48 +43,74 @@
                   required
                   name="email"
                   placeholder="user@email.com"
+                  formControlName="email"
                 />
-                <!-- [(ngModel)]="" -->
+                <ng-container *ngIf="pageFormCadastro.controls.email.touched">
+                  <span *ngIf="pageFormCadastro.controls.email.errors?.required">
+                    Campo obrigatório
+                  </span>
+                  <span *ngIf="pageFormCadastro.controls.email.errors?.email">
+                    E-mail inválido
+                  </span>
+                </ng-container>
+                
             </div>
             <div>
-                  <label for="senha">Senha</label>
-                  <input
-                    type="password"
-                    placeholder="Senha"
-                    minlength="6"
-                    id="password"
-                    required
-                    name="senha"
-                  />
-
-                  <!-- [(ngModel)]="" -->
+              <label for="senha">Senha</label>
+              <input
+                type="password"
+                placeholder="Senha"
+                
+                id="password"
+                required
+                name="senha"
+                formControlName="password"
+              />
+              <ng-container *ngIf="pageFormCadastro.controls.password.touched">
+                <span *ngIf="pageFormCadastro.controls.password.errors?.required">
+                  Campo obrigatório
+                </span>
+                <span *ngIf="pageFormCadastro.controls.password.errors?.minLength">
+                  Mínimo 6 caracteres
+                </span>
+              </ng-container>
+              
               </div>
               <div>
-                  <label for="senhaConfirma">Confirme a senha</label>
-                  <input
-                    type="password"
-                    placeholder="Confirme Senha"
-                    minlength="6"
-                    id="confirm-password"
-                    required
-                    name="senhaConfirma"
-                  />
-                  <!-- [(ngModel)]="" -->
+                <label for="senhaConfirma">Confirme a senha</label>
+                <input
+                  type="password"
+                  placeholder="Confirme Senha"
+                  
+                  id="confirm-password"
+                  required
+                  name="senhaConfirma"
+                  formControlName="confirmPassword"
+                />
+                <ng-container *ngIf="pageFormCadastro.controls.confirmPassword.touched">
+                  <span *ngIf="pageFormCadastro.controls.confirmPassword.errors?.required">
+                    Campo obrigatório
+                  </span>
+                  <span *ngIf="pageFormCadastro.controls.confirmPassword.errors?.minLength">
+                    Mínimo 6 caracteres
+                  </span>
+                </ng-container>
+                
               </div>
               <div>
                   <label>Você é um Artista/Cliente?</label>
                   <div class="checkArtista">
-                    <input type="checkbox" id="artista" name="artista">
+                    <input type="checkbox" formControlName="artista" id="artista" name="artista">
                     <label for="artista">Artista</label>
                   </div>
                 <div class="checkCliente">
-                    <input type="checkbox" id="cliente" name="cliente">
+                    <input type="checkbox" formControlName="cliente" id="cliente" name="cliente">
                     <label for="cliente">Cliente</label>
                 </div>
               </div>
 
               <div class="botoesCadastrar">
-                <button class="cadastrar">Cadastrar</button>
+                <button type="submit" class="cadastrar">Cadastrar</button>
                 <!-- <button mat-flat-button [style.width.%]="'40'" [routerLink]="['/page/cadastro']" routerLinkActive="active" class="cadastro">Cadastre-se</button> -->
               </div>
             <!-- <div>

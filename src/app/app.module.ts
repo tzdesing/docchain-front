@@ -10,7 +10,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MainModule } from './pages/main/main.module';
-import { RecSenhaComponent } from './pages/rec-senha/rec-senha.component';
+
 
 @NgModule({
   imports: [
@@ -23,8 +23,7 @@ import { RecSenhaComponent } from './pages/rec-senha/rec-senha.component';
     MainModule,
   ],
   declarations: [
-    AppComponent,
-    RecSenhaComponent
+    AppComponent
   ],
   providers: [
     {

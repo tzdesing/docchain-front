@@ -16,15 +16,18 @@
     padding: 10px 20px;
     position: relative;
     line-height: 36px;
-    font-weight: 500;
-    font-size: 25px;
     text-align: center;
-    display: grid;
 }
    
 .page{
     color: #000;
     max-width: 100%;
+    font-family: "Nunito Sans";
+    h1{
+        font-family: fangsong;
+        font-weight: 400;
+        font-size: 30px;
+    }
 }
 .page-Content{
     width: 80%;
@@ -37,7 +40,14 @@ label{
     font-weight: 400;
     font-size: 15px;
 }
-
+span{
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 60%;
+    font-weight: 500;
+    font-size: 9px;
+    color: red;
+}
 input[type="text"],input[type="email"],input[type="password"]{
     margin-bottom: 20px;
     outline: none;
@@ -57,18 +67,22 @@ input[type="text"],input[type="email"],input[type="password"]{
     font-size: 15px;
     .cadastrar{
         margin-left: 0;
-        border-radius: 13px;
-        margin: 40px;
+        border-radius: 9px;
+        margin-top: 25px;
         padding: 10px;
         background-color: #203e7e;
         width: 13%;
-        color: #fff;  
+        color: #fff; 
+        font-weight: 500; 
     }
-    
+    // .cadastrar:disabled{
+    //     background-color: gray;
+    //     color: #000;
+    // }
 }
 
 .checkArtista, .checkCliente{
-    margin-left: 45%;
+    margin-left: 34%;
     display: -webkit-box;
 }
 .checkArtista label, .checkCliente label{

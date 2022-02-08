@@ -1,1 +1,30 @@
-<p>rec-senha works!</p>
+<div class="page">
+    <div class="pageHeader">
+      <h1>Recuperação de Senha</h1>
+    </div>
+    <form #RecupForm class="pageContent" #formElement="ngForm" (ngSubmit)="postar()" [formGroup]="pageRecup">
+      <div class="container-form">
+        <div>
+            <label for="email">Digite o e-mail cadastrado</label>
+            <input
+              type="email"
+              required
+              name="email"
+              placeholder="user@email.com"
+              formControlName="email"
+            />
+            <ng-container *ngIf="pageRecup.controls.email.touched">
+              <span *ngIf="pageRecup.controls.email.errors?.required">
+                Campo obrigatório
+              </span>
+              <span *ngIf="pageRecup.controls.email.errors?.email">
+                E-mail inválido
+              </span>
+            </ng-container>
+        </div>
+        <div class="botoesEnviar">
+            <button type="submit" class="Enviar">Enviar</button>
+        </div>
+      </div>
+    </form>
+</div>
