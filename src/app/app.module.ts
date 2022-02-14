@@ -23,7 +23,7 @@ import { MainModule } from './pages/main/main.module';
     MainModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   providers: [
     {

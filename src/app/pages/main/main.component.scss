@@ -1,7 +1,7 @@
-.spacer {
+.spacer:not(.rodape) {
   flex: 1 1 auto;
 }
-span.spacer {
+span.spacer:not(.rodape) {
   padding-left: 20px;
   font-size: 27px;
 }
@@ -10,13 +10,22 @@ span.spacer {
     height: 51px;
   }
 }
-.main-content {
+.main-content:not(.rodape){
   box-sizing: border-box;
   height: calc(100vh - 64px);
   margin: 0px 0px;
   position: relative;
   padding: 84px 20px 0px 20px;
 }
+
+// .disposicaoPagina{
+//   display: grid;
+//   grid-gap: 1.5rem;
+//   grid-template-rows: repeat(1, 6rem);
+//   grid-template-areas: 
+//   'main-content'
+//   'rodape';
+// }
 
 .mat-toolbar {
   position: fixed;

@@ -1,0 +1,41 @@
+mat-toolbar {
+    justify-content: space-between;
+}
+
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    margin-bottom: 16px;
+}
+
+.imagemCard{
+    object-fit: cover;
+}
+
+.botoesCartao{
+    display: grid;
+    grid-auto-flow: column;
+    color: darkgoldenrod;
+}
+
+.novaObra{
+    font-size: 15px;
+    font-family: "Nunito Sans";
+    color:  darkgoldenrod;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: white;
+    padding: 4px;
+    border-radius: 4px;
+    box-shadow: 1px 1px;
+    //text-shadow: 1px 1px 0px #8a8a8a;
+}
+
+.divNovaObra{
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 15px;
+}

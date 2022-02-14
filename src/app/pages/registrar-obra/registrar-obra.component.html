@@ -1,0 +1,112 @@
+<div class="page">
+    <div class="pageHeader">
+      <h1>Registrar Obra</h1>
+    </div>
+    <form #RegistrodeObraForm class="pageContent" #formElement="ngForm" (ngSubmit)="postar()" [formGroup]="pageRegistroObra">
+      <div class="container-form">
+        <div>
+          <a [routerLink]="['/page/minhasObras']" class="voltar">Voltar</a>
+        </div>
+        <div>
+            <label for="titulo">Título</label>
+            <input
+              type="text"
+              maxlength="45"
+              required
+              name="titulo"
+              placeholder="Digite o título"
+              formControlName="titulo"
+            />
+            <ng-container *ngIf="pageRegistroObra.controls.titulo.touched">
+              <span *ngIf="pageRegistroObra.controls.titulo.errors?.required">
+                Campo obrigatório
+              </span>
+            </ng-container>
+        </div>
+        <div>
+            <label for="descricao">Descrição</label>
+            <textarea
+              rows="5"
+              required
+              name="descricao"
+              placeholder="Digite a descrição"
+              formControlName="descricao"
+            ></textarea>
+            <ng-container *ngIf="pageRegistroObra.controls.descricao.touched">
+              <span *ngIf="pageRegistroObra.controls.descricao.errors?.required">
+                Campo obrigatório
+              </span>
+            </ng-container>
+        </div>
+        <div>
+            <label for="tipo">Tipo</label>
+            <select
+              class="selectTipo"
+              required
+              name="tipo"
+              placeholder="Selecione um tipo"
+              formControlName="tipo">
+                <option value="watercolor">Aquarela</option>
+                <option value="digital_art">Arte Digital</option>
+                <option value="craftsmanship">Artesanato</option>
+                <option value="embroidery">Bordado</option>
+                <option value="stamp">Carimbo</option>
+                <option value="ceramics">Cerâmica</option>
+                <option value="collage">Colagem</option>
+                <option value="dance">Dança</option>
+                <option value="design">Desenho</option>
+                <option value="folding">Dobradura</option>
+                <option value="sculpture">Escultura</option>
+                <option value="photography">Fotografia</option>
+                <option value="illustration">Ilustração</option>
+                <option value="audiovisual_installation">Instalação audiovisual</option>
+                <option value="model">Maquete</option>
+                <option value="song">Música</option>
+                <option value="ink">Nanquim</option>
+                <option value="fried_pastry">Pastel</option>
+                <option value="oil_canvas_painting">Pintura em tela óleo</option>
+                <option value="painting_on_canvas_other_materials">Pintura em tela - outros materiais</option>
+                <option value="poetry">Poesia</option>
+                <option value="scribble">Rabisco</option>
+                <option value="serigraphy">Serigrafia</option>
+                <option value="tapestry">Tapeçaria</option>
+                <option value="spray_paint">Pintura em Spray</option>
+                <option value="typography">Tipografia</option>
+                <option value="video_footage">Video/Footage</option>
+            </select>
+            <ng-container *ngIf="pageRegistroObra.controls.tipo.touched">
+              <span *ngIf="pageRegistroObra.controls.tipo.errors?.required">
+                Campo obrigatório
+              </span>
+            </ng-container>
+        </div>
+
+        <div>
+            <label for="photoimg">Escolher Arquivo</label>
+            <input type="file" formControlName="imagem" id="photoimg" name="photoimg" required/>
+            <ng-container *ngIf="pageRegistroObra.controls.imagem.touched">
+                <span *ngIf="pageRegistroObra.controls.imagem.errors?.required">
+                  Campo obrigatório
+                </span>
+              </ng-container>
+        </div>
+
+        <div>
+            <label for="terms">Termos e condições</label>
+            <div class="checkTermos">
+                <input type="checkbox" formControlName="termos" id="terms" name="terms" value="1" required/>
+                <label for="terms"><a id="termsUrl" href="https://pytuna.bacic.com.br/artista/terms_and_conditions" target="_blank">Declaro que li e concordo com os termos e condições</a></label>
+            </div>
+            <ng-container *ngIf="pageRegistroObra.controls.termos.touched">
+                <span *ngIf="pageRegistroObra.controls.termos.errors?.required">
+                  Campo obrigatório
+                </span>
+              </ng-container>
+        </div>
+
+        <div class="botoesEnviar">
+            <button type="submit" class="Enviar">Enviar</button>
+        </div>
+      </div>
+    </form>
+</div>

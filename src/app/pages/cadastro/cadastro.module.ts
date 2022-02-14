@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
-const routes: Routes = [{ component: CadastroComponent, path: '' }]
+const routes: Routes = [{ component: CadastroComponent, path: '' }];
 
 @NgModule({
   declarations: [CadastroComponent],

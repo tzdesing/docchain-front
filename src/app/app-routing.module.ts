@@ -10,6 +10,9 @@ import { PartnerFormModule } from './pages/partner-form/partner-formmodule';
 import { PartnerModule } from './pages/partner/partner.module';
 import { CadastroModule } from './pages/cadastro/cadastro.module';
 import { RecSenhaModule } from './pages/rec-senha/rec-senha.module';
+import { MinhasObrasModule } from './pages/minhas-obras/minhas-obras.module';
+import { RegistrarObraModule } from './pages/registrar-obra/registrar-obra.module';
+import { DetalheObraModule } from './pages/detalhe-obra/detalhe-obra.module';
 
 
 const routes: Routes = [
@@ -59,6 +62,18 @@ const routes: Routes = [
         path: 'recuperarSenha',
         loadChildren: () => RecSenhaModule,
       },
+      {
+        path: 'minhasObras',
+        loadChildren: () => MinhasObrasModule,
+      },
+      {
+        path: 'registrarObra',
+        loadChildren: () => RegistrarObraModule,
+      },
+      {
+        path: 'detalheObra',
+        loadChildren: () => DetalheObraModule,
+      },      
     ],
   },
 ];

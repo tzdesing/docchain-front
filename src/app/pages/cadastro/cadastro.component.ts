@@ -11,6 +11,7 @@ import { environment } from '@env/environment';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
+  
   @ViewChild('CadastroForm') CadastroForm: ElementRef;
   public pageFormCadastro: FormGroup = this.formBuilder.group({
     nome: new FormControl('', [Validators.required]),

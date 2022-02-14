@@ -18,13 +18,13 @@
     line-height: 36px;
     text-align: center;
 }
-   
+
 .page{
     color: #000;
     max-width: 100%;
     font-family: "Nunito Sans";
     h1{
-        font-family: fangsong;
+        font-family: inherit;
         font-weight: 400;
         font-size: 30px;
     }
@@ -81,10 +81,27 @@ input[type="text"],input[type="email"],input[type="password"]{
     // }
 }
 
-.checkArtista, .checkCliente{
-    margin-left: 34%;
-    display: -webkit-box;
-}
-.checkArtista label, .checkCliente label{
-    margin-left: 2%;
+// .checkArtista, .checkCliente{
+//     margin-left: 34%;
+//     display: -webkit-box;
+// }
+// .checkArtista label, .checkCliente label{
+//     margin-left: 2%;
+// }
+
+.rodape{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #203e7e;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    color: #fff;
+    position: relative;
+    border-top: 5px solid #fff;
+    height: 64px;
+    letter-spacing: normal;
 }

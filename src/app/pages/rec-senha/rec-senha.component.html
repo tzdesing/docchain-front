@@ -5,6 +5,9 @@
     <form #RecupForm class="pageContent" #formElement="ngForm" (ngSubmit)="postar()" [formGroup]="pageRecup">
       <div class="container-form">
         <div>
+          <a [routerLink]="['/']" class="voltar">Voltar</a>
+        </div>
+        <div>
             <label for="email">Digite o e-mail cadastrado</label>
             <input
               type="email"

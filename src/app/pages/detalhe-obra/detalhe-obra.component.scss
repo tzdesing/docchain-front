@@ -1,0 +1,124 @@
+::ng-deep {
+    .mat-header-cell {
+      color: #000;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  .pageHeader{ 
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fdfdfd;
+    padding: 10px 20px;
+    position: relative;
+    line-height: 36px;
+    text-align: center;
+}
+
+.page{
+    color: #000;
+    max-width: 100%;
+    font-family: "Nunito Sans";
+    h1{
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 30px;
+    }
+}
+
+// .pageContent{
+//     width: 80%;
+//     margin-top: 1%;
+//     margin-bottom: 7%;
+//     margin-left: 10%;
+//     padding: 20px;
+    
+// }
+
+.pageContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.containerItens{
+    padding: 3rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1.5rem;
+    grid-template-columns: min-content;
+    grid-template-rows: repeat(2, 6rem);
+    grid-template-areas:
+    'imagem'
+    'espacador'
+    'espacador2'
+    'espacador3'
+    'titulo'
+    'descricao'
+    'tipo';
+}
+
+.containerImagem{
+    grid-area: imagem;
+}
+
+.containerTitulo{
+    grid-area: titulo;
+}
+
+.containerDescricao{
+    grid-area: descricao;
+}
+
+.containerTipo{
+    grid-area: tipo;
+}
+
+.voltar{
+    font-size: 15px;
+    font-family: "Nunito Sans";
+    color:  darkgoldenrod;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 15px;
+    //text-shadow: 1px 1px 0px #8a8a8a;
+}
+label{
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    color: darkgoldenrod;
+}
+p{
+    font-size: 14px;
+    text-align: justify;
+    text-indent: 0rem;
+}
+// .containerImagem{
+//     height: 10em;
+//     margin: 0;
+//     padding: 0;
+//     position: relative;
+// }
+.imagem{
+    // margin: 0;
+    // position: absolute;
+    // left: 50%;
+    // margin-right: -50%;
+    // transform: translate(-50%, -50%);
+    object-fit: cover;
+    max-width: 640px;
+    max-height: 480px;
+}
+
+// .containerImagem{
+//     width: 70%;
+//     height: auto;
+//     display: table-cell;
+//     text-align: center;
+// }
+// .imagem{
+//     object-fit: cover;
+// }

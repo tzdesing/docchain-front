@@ -18,8 +18,8 @@
         </div>
         <div fxFlex="calc(15% - 10px)" fxFlex.xs="100">
           <div>
-            <label for="cpf">CPF</label>
-            <input type="text" placeholder="XXX.XXX.XXX-XX" maxlength="11" name="cpf" formControlName="cpf" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})" required>
+            <label for="cpf">CPF/CNPJ</label>
+            <input type="text" placeholder="número do documento" maxlength="14" name="cpf" formControlName="cpf" required>
             <ng-container *ngIf="pageFormCadastro.controls.cpf.touched">
               <span *ngIf="pageFormCadastro.controls.cpf.errors?.required">
                 Campo obrigatório
@@ -97,7 +97,7 @@
                 </ng-container>
                 
               </div>
-              <div>
+              <!-- <div>
                   <label>Você é um Artista/Cliente?</label>
                   <div class="checkArtista">
                     <input type="checkbox" formControlName="artista" id="artista" name="artista">
@@ -107,7 +107,7 @@
                     <input type="checkbox" formControlName="cliente" id="cliente" name="cliente">
                     <label for="cliente">Cliente</label>
                 </div>
-              </div>
+              </div> -->
 
               <div class="botoesCadastrar">
                 <button type="submit" class="cadastrar">Cadastrar</button>
@@ -121,6 +121,5 @@
         <!-- </div> -->
       </div>
     </form>
-
-
   </div>
+  <footer class="rodape"></footer>
